@@ -1,0 +1,9 @@
+# Secretos
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Build del frontend (se genera en el despliegue)
+frontend/dist/
+frontend/node_modules/

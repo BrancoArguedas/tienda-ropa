@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-clay ring-offset-2 ring-offset-cream;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
+  }
+  .field-input {
+    @apply w-full rounded-lg border border-cream-300 bg-white px-3 py-2.5 text-sm text-ink placeholder:text-ink-muted/70
+      transition focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/10 disabled:bg-cream-200;
+  }
+  .field-error {
+    @apply mt-1 text-xs text-red-700;
+  }
+  .card {
+    @apply rounded-2xl border border-cream-300 bg-white;
+  }
+
+  /* Textos legales: solo los hijos directos, para no afectar formularios (.not-prose) */
+  .legal-prose {
+    @apply text-[15px] leading-relaxed text-ink-soft;
+  }
+  .legal-prose > h2 {
+    @apply mb-3 mt-10 text-xl text-ink md:text-2xl;
+  }
+  .legal-prose > p,
+  .legal-prose > ul,
+  .legal-prose > ol {
+    @apply mb-4;
+  }
+  .legal-prose > ul {
+    @apply list-disc space-y-2 pl-5;
+  }
+  .legal-prose > ol {
+    @apply list-decimal space-y-2 pl-5;
+  }
+  .legal-prose > p a,
+  .legal-prose > ul a,
+  .legal-prose > ol a {
+    @apply font-medium text-ink underline underline-offset-2;
+  }
+  .legal-prose table {
+    @apply mb-4 w-full min-w-[520px] border-collapse text-left text-sm;
+  }
+  .legal-prose th,
+  .legal-prose td {
+    @apply border-b border-cream-300 px-3 py-2 align-top;
+  }
+  .legal-prose th {
+    @apply font-semibold text-ink;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
